@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/ItxUzair1/E-Commerce.git",
+  "homepage": "https://itxuzair1.github.io/E-Commerce/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
