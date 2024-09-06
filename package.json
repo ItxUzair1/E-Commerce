@@ -1,9 +1,10 @@
 {
-  "name": "package.json",
+  "homepage": "https://itxuzair1.github.io/E-Commerce/",
+  "name":"e-commerce",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://itxuzair1.github.io/E-Commerce/",
+  
   "scripts": {
     "dev": "vite",
     "build": "vite build",
