@@ -18,28 +18,70 @@ import { SearchContext, SearchProvider } from './Components/Context/SearchContex
 import { CartProvider } from './Components/Context/CartContext.jsx';
 import Cart from './Components/Cart.jsx';
 
-const router = createHashRouter(
-  createRoutesFromElements(
-    <>
-      <Route path='/' element={<MainLayout />}>
-        <Route index element={<Home />} />
-        <Route path='allproducts' element={<AllProducts />} loader={FetchProducts} />
-        <Route path='category/:category' element={<Products />} loader={FetchCategoryProducts} />
-        <Route path='products/:id' element={<ProductDetails />} loader={FetchProductDetails} />
-        <Route path='contactus' element={<ContactUs/>}/>
-        <Route path='about' element={<AboutUs/>}/>
-        <Route path='cart' element={<Cart/>}/>
-      </Route>
-      <Route path='/signin' element={<SignUpLayout />}>
-        <Route path='' element={<SignIn />} />
-      </Route>
-      <Route path='/register' element={<SignUpLayout />}>
-        <Route path="" element={<SignUp />} />
-      </Route>
-      <Route path='*' element={<NotFoundPage />} />
-    </>
-  )
-);
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "allproducts",
+        element: <AllProducts />,
+        loader: FetchProducts,
+      },
+      {
+        path: "category/:category",
+        element: <Products />,
+        loader: FetchCategoryProducts,
+      },
+      {
+        path: "products/:id",
+        element: <ProductDetails />,
+        loader: FetchProductDetails,
+      },
+      {
+        path: "contactus",
+        element: <ContactUs />,
+      },
+      {
+        path: "about",
+        element: <AboutUs />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+    ],
+  },
+  {
+    path: "/signin",
+    element: <SignUpLayout />,
+    children: [
+      {
+        path: "",
+        element: <SignIn />,
+      },
+    ],
+  },
+  {
+    path: "/register",
+    element: <SignUpLayout />,
+    children: [
+      {
+        path: "",
+        element: <SignUp />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  },
+]);
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
